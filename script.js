@@ -421,7 +421,7 @@ function RAZ(){
     if(confirm('Effacer tout le tableau ?')){
         for(numRow = 0 ; numRow < LignesElec.length ; ++numRow){
             for(numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol) {
-                LignesElec[numRow][numCol].picto = 'blank';
+                LignesElec[numRow][numCol].picto = 'blank.png';
                 LignesElec[numRow][numCol].texte = '';
                 LignesElec[numRow][numCol].span = 1;
             }
