@@ -276,7 +276,7 @@ function sauveTexte(e) {
     let coords = target.closest("td").id.split('_');
     LignesElec[coords[0]][coords[1]].texte = target.innerText;
     
-    document.getElementById("lzdata").value = LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"});
+    document.getElementById("lzdata").value = encodeURIComponent(LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"}));
 }
 function updateTable() {
     el = document.getElementById('myTable');
@@ -333,7 +333,7 @@ function updateTable() {
     
     table.appendChild(tbody);
     document.getElementById('myTable').appendChild(table);
-    document.getElementById("lzdata").value = LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"});
+    document.getElementById("lzdata").value = encodeURIComponent(LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"}));
 }
 
 function RAZ(){
@@ -476,8 +476,17 @@ function exportPDF() {
 }
 
 function chargeLZdata() {
-    LignesElec = JSON.parse(LZUTF8.decompress(document.getElementById("lzdata").value, {inputEncoding: "Base64"}));
+    LignesElec = JSON.parse(LZUTF8.decompress(decodeURIComponent(document.getElementById("lzdata").value), {inputEncoding: "Base64"}));
+    //TODO catch exceptions here
     updateTable();
+}
+
+function loadGETData() {
+    let urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('data')) {
+        document.getElementById("lzdata").value = urlParams.get("data");
+    }
+    chargeLZdata();
 }
 
 function ready() {
@@ -500,6 +509,8 @@ function ready() {
     
     dragdrop.init(document.getElementById('imagedrop'));
     document.getElementById('fileUpload').addEventListener("change", function(){ ajoutImage(this.files[0]); });
+
+    loadGETData();
 }
 
 document.addEventListener("DOMContentLoaded", ready);
