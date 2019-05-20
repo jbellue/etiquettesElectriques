@@ -275,6 +275,8 @@ function sauveTexte(e) {
     let target = e.target;
     let coords = target.closest("td").id.split('_');
     LignesElec[coords[0]][coords[1]].texte = target.innerText;
+    
+    document.getElementById("lzdata").value = LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"});
 }
 function updateTable() {
     el = document.getElementById('myTable');
@@ -331,6 +333,7 @@ function updateTable() {
     
     table.appendChild(tbody);
     document.getElementById('myTable').appendChild(table);
+    document.getElementById("lzdata").value = LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"});
 }
 
 function RAZ(){
@@ -472,6 +475,11 @@ function exportPDF() {
     });
 }
 
+function chargeLZdata() {
+    LignesElec = JSON.parse(LZUTF8.decompress(document.getElementById("lzdata").value, {inputEncoding: "Base64"}));
+    updateTable();
+}
+
 function ready() {
     updateTable();
     loadPicto();
@@ -480,6 +488,7 @@ function ready() {
     document.getElementById("btnSuivantIdentique").addEventListener("click", NextIdem);
     document.getElementById("btnRAZ").addEventListener("click", RAZ);
     document.getElementById("btnExportPdf").addEventListener("click", exportPDF);
+    document.getElementById("btnLoadLZData").addEventListener("click", chargeLZdata);
     Select(gNumRow, gNumCol);
     
     let rangeLignes = document.getElementById("rangeLignes");
