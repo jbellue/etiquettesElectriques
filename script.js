@@ -35,8 +35,8 @@ LignesElec = [
             "span": 1
         },
         {
-            "picto": "electric-toothbrush.png",
-            "texte": "Grenier ?\n",
+            "picto": "wall-socket.png",
+            "texte": "Grenier",
             "span": 1
         },
         {
