@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js" integrity="sha256-uacRffSSMP9qpvNWhVmYLykBv9YKMA1d/VSIN1AmfyQ=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
 </head>
 <body>
     <h1>Etiquettes pour tableau électrique</h1>
@@ -41,6 +43,7 @@
         Le bouton "Suivant identique" vous permet de vous déplacer a la cellule suivante en y copiant le même pictograme (pratique pour faire une rangée de chauffage par exemple).<br>
         <br>
         <input type="button" id="btnRAZ" value="Cliquez ici pour remettre le tableau a zéro"><br>
+        <input type="button" id="btnExportPdf" value="Exporter en pdf">
     </div>
 </body>
 </html>

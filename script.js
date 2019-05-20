@@ -405,6 +405,7 @@ function updateTable() {
             td.id = `${numRow}_${numCol}_td`;
             td.addEventListener("click", SelectCellule);
             let indicateur = document.createElement("div");
+            indicateur.setAttribute("data-html2canvas-ignore", true);
             indicateur.id = `indic_${numRow}_${numCol}`;
             td.appendChild(indicateur);
             ligneEspace.appendChild(td);
@@ -542,6 +543,19 @@ function changeNombreLignes(e) {
     updateTable();
 }
 
+function exportPDF() {
+    html2canvas(window.document.getElementById("myTable")).then(function(canvas) {
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF('l');
+        let margins = {
+            top: 7,
+            left: 7
+        };
+        pdf.addImage(imgData, 'JPEG', margins.top, margins.left);
+        pdf.save("download.pdf");
+    });
+}
+
 function ready() {
     updateTable();
     loadPicto();
@@ -549,6 +563,7 @@ function ready() {
     document.getElementById("btnSplit").addEventListener("click", split);
     document.getElementById("btnSuivantIdentique").addEventListener("click", NextIdem);
     document.getElementById("btnRAZ").addEventListener("click", RAZ);
+    document.getElementById("btnExportPdf").addEventListener("click", exportPDF);
     Select(gNumRow, gNumCol);
 
     let rangeLignes = document.getElementById("rangeLignes");
