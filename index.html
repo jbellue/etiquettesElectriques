@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Étiquettes pour tableau électrique</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Etiquettes pour tableau électrique</h1>
+    <div id="myTable" class="imprimable"></div>
+    <br>
+    <div id="listePicto">
+        <div id="imagedrop">
+            Ajouter une image (glisser-déposer ici)
+            <input type="file" id="fileUpload" />
+        </div>
+    </div>
+    <div class="controls">
+        
+        <div class="detailedControls">
+            <input type="button" id="btnSuivantIdentique" value="Suivant identique">
+            <input type="button" id="btnMerge" value="Fusionner avec le précédent">
+            <input type="button" id="btnSplit" value="Séparer">
+        </div>
+        <div id="tailleTableau">
+            <label for="lignes">Nombre de lignes :</label>
+            <input type="number" id="rangeLignes" name="lignes" min="1">
+            <label for="colonnes">Nombre de colonnes :</label>
+            <input type="number" id="rangeColonnes" name="colonnes" min="1">
+        </div>
+    </div>
+    <div id="Explications">
+        <h1>Instructions:</h1>
+        <ol>
+            <li>Cliquez sur la cellule que vous souhaitez modifier</li>
+            <li>Cliquez sur une image du bandeau pour la choisir</li>
+            <li>Entrez le texte dans la zone de texte</li>
+        </ol>
+            Et ainsi de suite avec chaque cellule. Une fois terminé, vous pouvez imprimer - pensez a passer en mode "paysage" pour avoir la longueur voulue<br>
+        <br>
+        Le bouton "Suivant identique" vous permet de vous déplacer a la cellule suivante en y copiant le même pictograme (pratique pour faire une rangée de chauffage par exemple).<br>
+        <br>
+        <input type="button" id="btnRAZ" value="Cliquez ici pour remettre le tableau a zéro"><br>
+    </div>
+</body>
+</html>
