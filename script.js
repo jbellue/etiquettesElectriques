@@ -516,12 +516,12 @@ var dragdrop = {
 
 function changeNombreColonnes(e) {
     let nouvelleValeur = e.target.value;
-    if (nouvelleValeur < LignesElec[0].length) {
+    while (nouvelleValeur < LignesElec[0].length) {
         for (let i = 0; i < LignesElec.length; ++i) {
             LignesElec[i].pop();
         }
     }
-    else {
+    while (nouvelleValeur > LignesElec[0].length) {
         for (let i = 0; i < LignesElec.length; ++i) {
             LignesElec[i].push({picto: 'blank.png',texte: '',span: 1});
         }
@@ -530,10 +530,10 @@ function changeNombreColonnes(e) {
 }
 function changeNombreLignes(e) {
     let nouvelleValeur = e.target.value;
-    if (nouvelleValeur < LignesElec.length) {
+    while (nouvelleValeur < LignesElec.length) {
             LignesElec.pop();
     }
-    else {
+    while (nouvelleValeur > LignesElec.length) {
         let nouvelleLigne = [];
         for (let i = 0; i < LignesElec[0].length; ++i) {
             nouvelleLigne.push({picto: 'blank.png',texte: '',span: 1});
