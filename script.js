@@ -546,7 +546,7 @@ function changeNombreLignes(e) {
 function exportPDF() {
     html2canvas(window.document.getElementById("myTable")).then(function(canvas) {
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
-        var pdf = new jsPDF('l');
+        var pdf = new jsPDF('l', 'mm', document.getElementById("slctFormat").value);
         let margins = {
             top: 7,
             left: 7
