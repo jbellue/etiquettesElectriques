@@ -5,270 +5,186 @@ let gNumCol = 0;
 LignesElec = [
     [
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 3
+            "picto": "blank.png",
+            "texte": "\n\n\n\n\n\n\n\nA",
+            "span": 3
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 0
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
         },
         {
-            picto: 'blank.png', 
-            texte: '',
-            span: 0
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
         },
         {
-            picto: 'radiator.png',
-            texte: 'Rez de chaussée sud',
-            span: 1
+            "picto": "tumble-dryer.png",
+            "texte": "Sèche-linge",
+            "span": 1
         },
         {
-            picto: 'radiator.png',
-            texte: 'Rez de chaussée nord',
-            span: 1
+            "picto": "washing-machine.png",
+            "texte": "Lave-linge",
+            "span": 1
         },
         {
-            picto: 'radiator.png',
-            texte: 'Chambre 1er étage sud-ouest',
-            span: 1
+            "picto": "light.png",
+            "texte": "Cuisine - Salon\n",
+            "span": 1
         },
         {
-            picto: 'radiator.png',
-            texte: 'Salle de bain 1er étage',
-            span: 1
+            "picto": "electric-toothbrush.png",
+            "texte": "Grenier ?\n",
+            "span": 1
         },
         {
-            picto: 'radiator.png',
-            texte: 'Chambres 1er étage nord-est et nord-ouest',
-            span: 1
+            "picto": "wall-socket.png",
+            "texte": "Extérieur est\n",
+            "span": 1
         },
         {
-            picto: 'radiator.png',
-            texte: 'Chambre 1er étage sud-est',
-            span: 1
+            "picto": "wall-socket.png",
+            "texte": "Meuble blanc\n",
+            "span": 1
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
+            "picto": "wall-socket.png",
+            "texte": "Entrée",
+            "span": 1
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
+            "picto": "blank.png",
+            "texte": "",
+            "span": 4
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
+        },
+        {
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
+        },
+        {
+            "picto": "light.png",
+            "texte": "Entrée + prise tableau\n",
+            "span": 1
+        },
+        {
+            "picto": "blank.png",
+            "texte": "",
+            "span": 2
+        },
+        {
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
+        },
+        {
+            "picto": "light.png",
+            "texte": "Télérupteur entrée",
+            "span": 1
         }
     ],
     [
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 3
+            "picto": "blank.png",
+            "texte": "\n\n\n\n\n\n\n\nAC",
+            "span": 3
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 0
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 0
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
         },
         {
-            picto: 'frying-pan.png',
-            texte: 'Cuisine - Plaque de cuisson',
-            span: 1
+            "picto": "wall-socket.png",
+            "texte": "Cheminée",
+            "span": 1
         },
         {
-            picto: 'washing-machine.png',
-            texte: 'Étage - Lave linge',
-            span: 1
+            "picto": "wall-socket.png",
+            "texte": "Cuisine",
+            "span": 1
         },
         {
-            picto: 'dishwasher.png',
-            texte: 'Cuisine - Lave vaisselle',
-            span: 1
+            "picto": "light.png",
+            "texte": "Salle de bains - WC\n",
+            "span": 1
         },
         {
-            picto: 'wall-socket.png',
-            texte: 'Gaine technique',
-            span: 1
+            "picto": "wall-socket.png",
+            "texte": "Intérieur est\n",
+            "span": 1
         },
         {
-            picto: 'fan-head.png',
-            texte: 'Ventilation maison',
-            span: 1
+            "picto": "wall-socket.png",
+            "texte": "Salle de bains rez-de-chaussée",
+            "span": 1
         },
         {
-            picto: 'light.png',
-            texte: 'Escalier et paliers',
-            span: 1
+            "picto": "wall-socket.png",
+            "texte": "Salle de bains étage + chambre\n",
+            "span": 1
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
+            "picto": "light.png",
+            "texte": "Salle de bains étage + chambre\n",
+            "span": 1
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
+            "picto": "lights.png",
+            "texte": "Interrupteurs ouest\n",
+            "span": 1
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
+            "picto": "blank.png",
+            "texte": "",
+            "span": 2
         },
         {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        }
-    ],
-    [
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 2
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
         },
         {
-            picto: 'blank.png', 
-            texte: '',
-            span: 0,
+            "picto": "wall-socket.png",
+            "texte": "Surpresseur",
+            "span": 1
         },
         {
-            picto: 'cooker.png',
-            texte: 'Cuisine - Four',
-            span: 1
+            "picto": "water-heater.png",
+            "texte": "Cumulus",
+            "span": 1
         },
         {
-            picto: 'wall-socket.png',
-            texte: 'Rez de chaussée - sud-est',
-            span: 1
+            "picto": "water-heater.png",
+            "texte": "SONOFF cumulus",
+            "span": 3
         },
         {
-            picto: 'wall-socket.png',
-            texte: 'Rez de chaussée - nord',
-            span: 1
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
         },
         {
-            picto: 'wall-socket.png',
-            texte: 'Chambre 1er étage - sud-est',
-            span: 1
-        },
-        {
-            picto: 'lights.png',
-            texte: 'Extérieur et cave',
-            span: 1
-        },
-        {
-            picto: 'light.png',
-            texte: 'Étage',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        }
-    ],
-    [
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 2
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 0
-        },
-        {
-            picto: 'wall-socket.png',
-            texte: 'Chambre 1er étage - nord-est et nord-ouest',
-            span: 1
-        },
-        {
-            picto: 'wall-socket.png',
-            texte: '1er étage Chambre sud-ouest, salle de bain, palier',
-            span: 1
-        },
-        {
-            picto: 'wall-socket.png',
-            texte: 'Rez de chaussée sud-ouest',
-            span: 1
-        },
-        {
-            picto: 'light.png',
-            texte: 'Rez de chaussée',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        },
-        {
-            picto: 'water-heater.png',
-            texte: 'Chauffe eau (cave)',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
-        },
-        {
-            picto: 'blank.png',
-            texte: '',
-            span: 1
+            "picto": "blank.png",
+            "texte": "",
+            "span": 0
         }
     ]
 ];
@@ -295,7 +211,7 @@ function split() {
     else if(LignesElec[gNumRow][gNumCol].span == 0) {
         LignesElec[gNumRow][gNumCol].span = 1;
         let colonne = gNumCol;
-
+        
     }
     updateAfterSplitMerge();
 }
@@ -326,7 +242,7 @@ function Select(ligne, colonne) {
     // Stocke les nouvelles valeur de position
     gNumRow = ligne;
     gNumCol = colonne;
-
+    
     let mergeDisabled = false;
     let cell = colonne;
     if(LignesElec[ligne][cell].span == 0 || cell == 0) {
@@ -337,7 +253,7 @@ function Select(ligne, colonne) {
     }
     document.getElementById('btnMerge').disabled = mergeDisabled;
     document.getElementById('btnSplit').disabled = (LignesElec[ligne][colonne].span == 1);
-
+    
     // Replace l'indicateur de position
     document.getElementById(`indic_${ligne}_${colonne}`).innerHTML = '^';
     // Donne le focus au bon élément
@@ -387,7 +303,7 @@ function updateTable() {
                     }
                     cellule.appendChild(picto);
                 }
-
+                
                 span = document.createElement("div");
                 span.innerHTML = LignesElec[numRow][numCol].texte;
                 span.contentEditable = true;
@@ -412,7 +328,7 @@ function updateTable() {
         }
         tbody.appendChild(ligneEspace);
     }
-
+    
     table.appendChild(tbody);
     document.getElementById('myTable').appendChild(table);
 }
@@ -468,7 +384,7 @@ function loadPicto() {
         "washing-machine.png",     "washing.png",                  "water-heater.png",
         "blank.png"
     ];
-
+    
     let listePicto = document.getElementById("listePicto");
     imgList.forEach(imageName => {
         let image = document.createElement("img");
@@ -480,38 +396,38 @@ function loadPicto() {
 
 /* drag and drop fun, from https://codepen.io/doughensel/pen/zGMmop */
 function ajoutImage(fichier) {
-	if( fichier.type === 'image/png' || 
-        fichier.type === 'image/jpg' || 
-        fichier.type === 'image/jpeg' ||
-        fichier.type === 'image/gif' ||
-        fichier.type === 'image/bmp'){
-		let reader = new FileReader();
+    if( fichier.type === 'image/png' || 
+    fichier.type === 'image/jpg' || 
+    fichier.type === 'image/jpeg' ||
+    fichier.type === 'image/gif' ||
+    fichier.type === 'image/bmp'){
+        let reader = new FileReader();
         let image = new Image();
-		reader.readAsDataURL( fichier );
-		reader.onload = function(newImage){
+        reader.readAsDataURL( fichier );
+        reader.onload = function(newImage){
             let listePicto = document.getElementById("listePicto");
             let image = document.createElement("img");
             image.src = newImage.target.result;
             image.onclick = function() {AddPicture(newImage.target.result);};
             // listePicto.appendChild(image);
             listePicto.insertBefore(image, listePicto.firstChild);
-		};
-	}
+        };
+    }
 }
 
 var dragdrop = {
-	init: function(elem){
-		elem.setAttribute('ondrop', 'dragdrop.drop(event)');
-		elem.setAttribute('ondragover', 'dragdrop.drag(event)' );
-	},
-	drop: function(e){
-		e.preventDefault();
-		let file = e.dataTransfer.files[0];
-		ajoutImage(file);
-	},
-	drag: function(e){
-		e.preventDefault();
-	}
+    init: function(elem){
+        elem.setAttribute('ondrop', 'dragdrop.drop(event)');
+        elem.setAttribute('ondragover', 'dragdrop.drag(event)' );
+    },
+    drop: function(e){
+        e.preventDefault();
+        let file = e.dataTransfer.files[0];
+        ajoutImage(file);
+    },
+    drag: function(e){
+        e.preventDefault();
+    }
 };
 
 function changeNombreColonnes(e) {
@@ -531,7 +447,7 @@ function changeNombreColonnes(e) {
 function changeNombreLignes(e) {
     let nouvelleValeur = e.target.value;
     while (nouvelleValeur < LignesElec.length) {
-            LignesElec.pop();
+        LignesElec.pop();
     }
     while (nouvelleValeur > LignesElec.length) {
         let nouvelleLigne = [];
@@ -565,14 +481,14 @@ function ready() {
     document.getElementById("btnRAZ").addEventListener("click", RAZ);
     document.getElementById("btnExportPdf").addEventListener("click", exportPDF);
     Select(gNumRow, gNumCol);
-
+    
     let rangeLignes = document.getElementById("rangeLignes");
     rangeLignes.value = LignesElec.length;
     rangeLignes.addEventListener("change", changeNombreLignes);
     let rangeColonnes = document.getElementById("rangeColonnes");
     rangeColonnes.value = LignesElec[0].length;
     rangeColonnes.addEventListener("change", changeNombreColonnes);
-
+    
     dragdrop.init(document.getElementById('imagedrop'));
     document.getElementById('fileUpload').addEventListener("change", function(){ ajoutImage(this.files[0]); });
 }
