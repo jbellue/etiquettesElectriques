@@ -6,7 +6,7 @@ LignesElec = [
     [
         {
             "picto": "blank.png",
-            "texte": "\n\n\n\n\n\n\n\nA",
+            "texte": "A",
             "span": 3
         },
         {
@@ -98,7 +98,7 @@ LignesElec = [
     [
         {
             "picto": "blank.png",
-            "texte": "\n\n\n\n\n\n\n\nAC",
+            "texte": "AC",
             "span": 3
         },
         {
