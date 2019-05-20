@@ -489,6 +489,11 @@ function loadGETData() {
     chargeLZdata();
 }
 
+function sendToURL() {
+    const newurl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?data=${document.getElementById("lzdata").value}`;
+    window.location = newurl;
+}
+
 function ready() {
     updateTable();
     loadPicto();
@@ -498,6 +503,8 @@ function ready() {
     document.getElementById("btnRAZ").addEventListener("click", RAZ);
     document.getElementById("btnExportPdf").addEventListener("click", exportPDF);
     document.getElementById("btnLoadLZData").addEventListener("click", chargeLZdata);
+    document.getElementById("btnSendToURL").addEventListener("click", sendToURL);
+    
     Select(gNumRow, gNumCol);
     
     let rangeLignes = document.getElementById("rangeLignes");
