@@ -363,6 +363,7 @@ function RAZ(){
 function NextIdem(){
     const img = LignesElec[gNumRow][gNumCol].picto;
     const texte = LignesElec[gNumRow][gNumCol].texte;
+    if(gNumCol < LignesElec[0].length) {
         gNumCol++;
     }
     else {
@@ -487,8 +488,8 @@ function chargeLZdata() {
     const textArea = document.getElementById("lzdata");
     try {
         LignesElec = JSON.parse(LZUTF8.decompress(decodeURIComponent(textArea.value), {inputEncoding: "Base64"}));
-    updateTable();
-}
+        updateTable();
+    }
     catch (e) {
         console.exception(e);
         textArea.value = "Erreur : impossible de lire les données";
