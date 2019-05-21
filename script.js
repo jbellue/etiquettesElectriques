@@ -276,8 +276,22 @@ function sauveTexte(e) {
     let coords = target.closest("td").id.split('_');
     LignesElec[coords[0]][coords[1]].texte = target.innerText;
     
-    document.getElementById("lzdata").value = encodeURIComponent(LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"}));
+    metAJourLZData();
 }
+
+function metAJourLZData() {
+    const textAreaLZData = document.getElementById("lzdata");
+    try {
+        textAreaLZData.value = encodeURIComponent(LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"}));
+        textAreaLZData.style.backgroundColor = "";
+    }
+    catch (e) {
+        console.exception(e);
+        textAreaLZData.value = "Erreur : impossible de compresser les données";
+        textAreaLZData.style.backgroundColor = "red";
+    }
+}
+
 function updateTable() {
     el = document.getElementById('myTable');
     while (el.firstChild) {
@@ -333,7 +347,7 @@ function updateTable() {
     
     table.appendChild(tbody);
     document.getElementById('myTable').appendChild(table);
-    document.getElementById("lzdata").value = encodeURIComponent(LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"}));
+    metAJourLZData();
 }
 
 function RAZ(){
@@ -476,9 +490,16 @@ function exportPDF() {
 }
 
 function chargeLZdata() {
-    LignesElec = JSON.parse(LZUTF8.decompress(decodeURIComponent(document.getElementById("lzdata").value), {inputEncoding: "Base64"}));
-    //TODO catch exceptions here
+    const textArea = document.getElementById("lzdata");
+    try {
+        LignesElec = JSON.parse(LZUTF8.decompress(decodeURIComponent(textArea.value), {inputEncoding: "Base64"}));
     updateTable();
+}
+    catch (e) {
+        console.exception(e);
+        textArea.value = "Erreur : impossible de lire les données";
+        textArea.style.backgroundColor = "red";
+    }
 }
 
 function loadGETData() {
