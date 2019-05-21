@@ -421,8 +421,7 @@ function ajoutImage(fichier) {
             const image = document.createElement("img");
             image.src = newImage.target.result;
             image.onclick = function() {AddPicture(newImage.target.result);};
-            // listePicto.appendChild(image);
-            listePicto.insertBefore(image, listePicto.firstChild);
+            listePicto.insertBefore(image, listePicto.lastElementChild);
         };
     }
 }
