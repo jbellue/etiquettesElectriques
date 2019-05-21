@@ -2,7 +2,7 @@
 let gNumRow = 0;
 let gNumCol = 0;
 
-LignesElec = [
+let LignesElec = [
     [
         {
             "picto": "blank.png",
@@ -205,20 +205,17 @@ function merge(){
 function split() {
     if(LignesElec[gNumRow][gNumCol].span > 1) {
         LignesElec[gNumRow][gNumCol].span -= 1;
-        let colonne = gNumCol + 1;
-        LignesElec[gNumRow][colonne].span = 1;
+        LignesElec[gNumRow][gNumCol + 1].span = 1;
     }
     else if(LignesElec[gNumRow][gNumCol].span == 0) {
         LignesElec[gNumRow][gNumCol].span = 1;
-        let colonne = gNumCol;
-        
     }
     updateAfterSplitMerge();
 }
 
 function updateAfterSplitMerge() {
     // Reprendre la ligne a l'envers, compter les cellules fusionnées et mettre a jour les valeurs
-    nombreCellulesFusionnees=0;
+    let nombreCellulesFusionnees = 0;
     for(let colonne = LignesElec[gNumRow].length - 1 ; colonne > -1 ; --colonne){
         if(LignesElec[gNumRow][colonne].span == 0) {
             nombreCellulesFusionnees++;
@@ -267,13 +264,13 @@ function Select(ligne, colonne) {
 }
 
 function SelectCellule(e) {
-    let coords = e.target.closest("td").id.split('_');
+    const coords = e.target.closest("td").id.split('_');
     Select(parseInt(coords[0], 10), parseInt(coords[1], 10));
 }
 
 function sauveTexte(e) {
-    let target = e.target;
-    let coords = target.closest("td").id.split('_');
+    const target = e.target;
+    const coords = target.closest("td").id.split('_');
     LignesElec[coords[0]][coords[1]].texte = target.innerText;
     
     metAJourLZData();
@@ -293,24 +290,24 @@ function metAJourLZData() {
 }
 
 function updateTable() {
-    el = document.getElementById('myTable');
+    const el = document.getElementById('myTable');
     while (el.firstChild) {
         el.removeChild(el.firstChild);
     }
-    let table = document.createElement("table");
+    const table = document.createElement("table");
     table.classList.add("ligneTableau");
-    let tbody = document.createElement("tbody");
+    const tbody = document.createElement("tbody");
     for(numRow = 0 ; numRow < LignesElec.length ; ++numRow) {
         let ligne = document.createElement("tr");
         for(numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol){
             if(LignesElec[numRow][numCol].span != 0){
-                let cellule = document.createElement("td");
+                const cellule = document.createElement("td");
                 cellule.classList.add("Cell", "CellTableau");
                 cellule.id = `${numRow}_${numCol}`;
                 cellule.addEventListener("click", SelectCellule);
                 cellule.colSpan = LignesElec[numRow][numCol].span;
                 if (LignesElec[numRow][numCol].picto != "blank.png") {
-                    let picto = document.createElement("img");
+                    const picto = document.createElement("img");
                     if (LignesElec[numRow][numCol].picto.startsWith("data:")) {
                         picto.src = LignesElec[numRow][numCol].picto;
                     }
@@ -329,14 +326,14 @@ function updateTable() {
             }
         }
         tbody.appendChild(ligne);
-        let ligneEspace = document.createElement("tr");
+        const ligneEspace = document.createElement("tr");
         ligneEspace.classList.add("TRSpacer");
         for(numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol) {
-            let td = document.createElement("td");
+            const td = document.createElement("td");
             td.classList.add("Cell", "CellEspace");
             td.id = `${numRow}_${numCol}_td`;
             td.addEventListener("click", SelectCellule);
-            let indicateur = document.createElement("div");
+            const indicateur = document.createElement("div");
             indicateur.setAttribute("data-html2canvas-ignore", true);
             indicateur.id = `indic_${numRow}_${numCol}`;
             td.appendChild(indicateur);
@@ -352,8 +349,8 @@ function updateTable() {
 
 function RAZ(){
     if(confirm('Effacer tout le tableau ?')){
-        for(numRow = 0 ; numRow < LignesElec.length ; ++numRow){
-            for(numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol) {
+        for(let numRow = 0 ; numRow < LignesElec.length ; ++numRow){
+            for(let numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol) {
                 LignesElec[numRow][numCol].picto = 'blank.png';
                 LignesElec[numRow][numCol].texte = '';
                 LignesElec[numRow][numCol].span = 1;
@@ -364,9 +361,8 @@ function RAZ(){
 }
 
 function NextIdem(){
-    let img = LignesElec[gNumRow][gNumCol].picto;
-    let texte = LignesElec[gNumRow][gNumCol].texte;
-    if(gNumCol < 12) {
+    const img = LignesElec[gNumRow][gNumCol].picto;
+    const texte = LignesElec[gNumRow][gNumCol].texte;
         gNumCol++;
     }
     else {
@@ -385,7 +381,7 @@ function AddPicture(imgName){
 }
 
 function loadPicto() {
-    imgList = [
+    const imgList = [
         "air-conditioner.png",     "bath-fan.png",                 "bath-light.png",
         "ceiling-light.png",       "central-air-conditioning.png", "central-heating.png",
         "cooker-hood.png",         "cooker.png",                   "dishwasher.png",
@@ -402,9 +398,9 @@ function loadPicto() {
         "blank.png"
     ];
     
-    let listePicto = document.getElementById("listePicto");
+    const listePicto = document.getElementById("listePicto");
     imgList.forEach(imageName => {
-        let image = document.createElement("img");
+        const image = document.createElement("img");
         image.src = `pict/${imageName}`;
         image.onclick = function() {AddPicture(imageName);};
         listePicto.insertBefore(image, listePicto.firstChild);
@@ -418,12 +414,11 @@ function ajoutImage(fichier) {
     fichier.type === 'image/jpeg' ||
     fichier.type === 'image/gif' ||
     fichier.type === 'image/bmp'){
-        let reader = new FileReader();
-        let image = new Image();
+        const reader = new FileReader();
         reader.readAsDataURL( fichier );
-        reader.onload = function(newImage){
-            let listePicto = document.getElementById("listePicto");
-            let image = document.createElement("img");
+        reader.onload = function(newImage) {
+            const listePicto = document.getElementById("listePicto");
+            const image = document.createElement("img");
             image.src = newImage.target.result;
             image.onclick = function() {AddPicture(newImage.target.result);};
             // listePicto.appendChild(image);
@@ -432,7 +427,7 @@ function ajoutImage(fichier) {
     }
 }
 
-var dragdrop = {
+const dragdrop = {
     init: function(elem){
         elem.setAttribute('ondrop', 'dragdrop.drop(event)');
         elem.setAttribute('ondragover', 'dragdrop.drag(event)' );
@@ -448,7 +443,7 @@ var dragdrop = {
 };
 
 function changeNombreColonnes(e) {
-    let nouvelleValeur = e.target.value;
+    const nouvelleValeur = e.target.value;
     while (nouvelleValeur < LignesElec[0].length) {
         for (let i = 0; i < LignesElec.length; ++i) {
             LignesElec[i].pop();
@@ -462,7 +457,7 @@ function changeNombreColonnes(e) {
     updateTable();
 }
 function changeNombreLignes(e) {
-    let nouvelleValeur = e.target.value;
+    const nouvelleValeur = e.target.value;
     while (nouvelleValeur < LignesElec.length) {
         LignesElec.pop();
     }
@@ -478,9 +473,9 @@ function changeNombreLignes(e) {
 
 function exportPDF() {
     html2canvas(window.document.getElementById("myTable")).then(function(canvas) {
-        var imgData = canvas.toDataURL("image/jpeg", 1.0);
-        var pdf = new jsPDF('l', 'mm', document.getElementById("slctFormat").value);
-        let margins = {
+        const imgData = canvas.toDataURL("image/jpeg", 1.0);
+        const pdf = new jsPDF('l', 'mm', document.getElementById("slctFormat").value);
+        const margins = {
             top: 7,
             left: 7
         };
@@ -503,7 +498,7 @@ function chargeLZdata() {
 }
 
 function loadGETData() {
-    let urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('data')) {
         document.getElementById("lzdata").value = urlParams.get("data");
     }
