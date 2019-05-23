@@ -23,12 +23,12 @@ Il existe un logiciel (Semiolog, par Hager) qui permettrait de réaliser ce type
   - On peut, par exemple, envoyer son contenu par e-mail à quelqu'un pour qu'il puisse regarder, et accepter l'organisation du tableau, ou pour le faire imprimer, etc.
   - En collant un texte dedans, et en cliquant "charger", le tableau présent est remplacé par celui compressé dans la zone de texte
   - le bouton "vers la barre d'adresse" permet d'envoyer le texte dans la barre d'adresse. Au lieu d'avoir simplement l'adresse du site, celle-ci contient maintenant tout le tableau compressé !
-  Par exemple, https://jbellue.github.io/etiquettesElectriques/?data=W1t7InBpY3RvIjoiYmxhbmsucG5nIiwidGV4dGUiOiJBIiwic3BhbiI6M30s3ivJKjDfKtcqdHVtYmxlLWRyeWVyzzFTw6hjaGUtbGluZ2XJPTHMPXdhc2hpbmctbWFjaGluZc9ATGF23T5saWdodM80Q3Vpc2luZSAtIFNhbG9uXG7YeWxsLXNvY2tl0EFHcmVuaWVy3zfRN0V4dMOpcmlldXIgZXN033fTQE1ldWJsZSDkAXhj3z7Ufm50csOp9wEn%2FQHMNN8q%2FwIg3yrfKs4q9AHP5wDZICsgcHJpc2UgdGFibGVhdfgBIt1tMt8q%2FwCXzCpUw6lsw6lydXB05QHx8QF%2BXSz%2FA6FBQ%2F8Dov8Al98qzSr6AjdDaGVtaW75AjnbOeYDZtY39AExU2FsbGUgZGUgYmFpbnMgLSBXQ%2F8C5tN2SW7%2FA2TfQO8AhXJlei1kZS1jaGF1c3P%2FAQXfT8RPw6l0YWfkAqpjaGFtYnJl%2BACg%2FwEf30vSS3PPTEludGVy5wKbcyBvdfsBK%2F8DL98q%2FwJu8gEwdXJwcmVzc2V1%2BQVedGVyLWhlxAfPPEN1bXVsdXPfONI4U09OT0ZGIGPPP%2F8DdP8DdNgqXV0%3D
+  Par exemple, <https://jbellue.github.io/etiquettesElectriques/?data=W1t7InBpY3RvIjoiYmxhbmsucG5nIiwidGV4dGUiOiJBIiwic3BhbiI6M30s3ivJKjDfKtcqdHVtYmxlLWRyeWVyzzFTw6hjaGUtbGluZ2XJPTHMPXdhc2hpbmctbWFjaGluZc9ATGF23T5saWdodM80Q3Vpc2luZSAtIFNhbG9uXG7YeWxsLXNvY2tl0EFHcmVuaWVy3zfRN0V4dMOpcmlldXIgZXN033fTQE1ldWJsZSDkAXhj3z7Ufm50csOp9wEn%2FQHMNN8q%2FwIg3yrfKs4q9AHP5wDZICsgcHJpc2UgdGFibGVhdfgBIt1tMt8q%2FwCXzCpUw6lsw6lydXB05QHx8QF%2BXSz%2FA6FBQ%2F8Dov8Al98qzSr6AjdDaGVtaW75AjnbOeYDZtY39AExU2FsbGUgZGUgYmFpbnMgLSBXQ%2F8C5tN2SW7%2FA2TfQO8AhXJlei1kZS1jaGF1c3P%2FAQXfT8RPw6l0YWfkAqpjaGFtYnJl%2BACg%2FwEf30vSS3PPTEludGVy5wKbcyBvdfsBK%2F8DL98q%2FwJu8gEwdXJwcmVzc2V1%2BQVedGVyLWhlxAfPPEN1bXVsdXPfONI4U09OT0ZGIGPPP%2F8DdP8DdNgqXV0%3D>
   contient le tableau de base. Pratique, pour enregistrer ça en marque page, ou pour le partager !
 
 ## Remerciements
 
-L'idée originale vient de Zaz789, et son site est disponible sur http://mawel.free.fr/etiquettes/ Avec son accord, j'ai réécrit la plupart du code pour ajouter les fonctionnalités qui me manquaient.
+L'idée originale vient de Zaz789, et son site est disponible sur <http://mawel.free.fr/etiquettes/> Avec son accord, j'ai réécrit la plupart du code pour ajouter les fonctionnalités qui me manquaient.
 Icônes venues de icons8.com, merci !
 
 ## Reste à faire
