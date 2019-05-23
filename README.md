@@ -32,6 +32,6 @@ Icônes venues de icons8.com, merci !
 
 ## Reste à faire
 
-[ ] Un style CSS acceptable...
-[ ] Permettre de désactiver la compression automatique du tableau pour aller plus vite, et avoir un bouton "exporter" ?
-[ ] Réorganiser les icônes dans un ordre plus logique
+- [ ] Un style CSS acceptable...
+- [ ] Permettre de désactiver la compression automatique du tableau pour aller plus vite, et avoir un bouton "exporter" ?
+- [ ] Réorganiser les icônes dans un ordre plus logique
