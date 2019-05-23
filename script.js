@@ -384,20 +384,21 @@ function AddPicture(imgName){
 }
 
 function loadPicto() {
+    // Ces images vont être affichées dans l'ordre inverse de cette liste
     const imgList = [
-        "air-conditioner.png",     "bath-fan.png",                 "bath-light.png",
-        "ceiling-light.png",       "central-air-conditioning.png", "central-heating.png",
-        "cooker-hood.png",         "cooker.png",                   "dishwasher.png",
-        "electric-toothbrush.png", "fan-head.png",                 "fan.png",
-        "fridge.png",              "frying-pan.png",               "garage.png",
-        "hair-dryer.png",          "heating-automation.png",       "heating-room.png",
-        "illumination.png",        "kitchen.png",                  "light-automation.png",
-        "light-bulb.png",          "light.png",                    "lights.png",
-        "microwave.png",           "office-phone.png",             "pc-on-desk.png",
-        "radiator.png",            "smart-home-automation.png",    "spa.png",
-        "stairs-down.png",         "stairs-up.png",                "thermometer-automation.png",
-        "toaster-oven.png",        "tumble-dryer.png",             "wall-socket.png",
-        "washing-machine.png",     "washing.png",                  "water-heater.png",
+        "air-conditioner.png",        "central-air-conditioning.png", "central-heating.png",
+        "radiator.png",               "heating-automation.png",       "heating-room.png",
+        "thermometer-automation.png", "kitchen.png",                  "cooker-hood.png",
+        "cooker.png",                 "frying-pan.png",               "microwave.png",
+        "toaster-oven.png",           "fridge.png",                   "dishwasher.png",
+        "electric-toothbrush.png",    "hair-dryer.png",               "bath-fan.png",
+        "fan-head.png",               "fan.png",                      "spa.png",
+        "bath-light.png",             "illumination.png",             "light-automation.png",
+        "light-bulb.png",             "light.png",                    "lights.png",
+        "ceiling-light.png",          "smart-home-automation.png",    "wall-socket.png",
+        "office-phone.png",           "pc-on-desk.png",               "tumble-dryer.png",
+        "washing-machine.png",        "washing.png",                  "water-heater.png",
+        "garage.png",                 "stairs-down.png",              "stairs-up.png",                
         "blank.png"
     ];
     
