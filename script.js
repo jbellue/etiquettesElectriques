@@ -1,4 +1,3 @@
-
 let gNumRow = 0;
 let gNumCol = 0;
 
@@ -188,6 +187,7 @@ let LignesElec = [
         }
     ]
 ];
+let autoCompress;
 
 function merge(){
     let cell = gNumCol;
@@ -277,15 +277,17 @@ function sauveTexte(e) {
 }
 
 function metAJourLZData() {
-    const textAreaLZData = document.getElementById("lzdata");
-    try {
-        textAreaLZData.value = encodeURIComponent(LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"}));
-        textAreaLZData.style.backgroundColor = "";
-    }
-    catch (e) {
-        console.exception(e);
-        textAreaLZData.value = "Erreur : impossible de compresser les données";
-        textAreaLZData.style.backgroundColor = "red";
+    if(autoCompress) {
+        const textAreaLZData = document.getElementById("lzdata");
+        try {
+            textAreaLZData.value = encodeURIComponent(LZUTF8.compress(JSON.stringify(LignesElec), {outputEncoding: "Base64"}));
+            textAreaLZData.style.backgroundColor = "";
+        }
+        catch (e) {
+            console.exception(e);
+            textAreaLZData.value = "Erreur : impossible de compresser les données";
+            textAreaLZData.style.backgroundColor = "red";
+        }
     }
 }
 
@@ -501,8 +503,8 @@ function loadGETData() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('data')) {
         document.getElementById("lzdata").value = urlParams.get("data");
+        chargeLZdata();
     }
-    chargeLZdata();
 }
 
 function sendToURL() {
@@ -511,6 +513,17 @@ function sendToURL() {
 }
 
 function ready() {
+    const checkboxAutoCompress = document.getElementById("checkboxAutoCompress");
+    checkboxAutoCompress.addEventListener("change", () => {
+        autoCompress = checkboxAutoCompress.checked;
+        if (autoCompress) {
+            metAJourLZData();
+        }
+        else {
+            document.getElementById("lzdata").value = "";
+        }
+    });
+    autoCompress = checkboxAutoCompress.checked;
     updateTable();
     loadPicto();
     document.getElementById("btnMerge").addEventListener("click", merge);
@@ -532,7 +545,6 @@ function ready() {
     
     dragdrop.init(document.getElementById('imagedrop'));
     document.getElementById('fileUpload').addEventListener("change", function(){ ajoutImage(this.files[0]); });
-
     loadGETData();
 }
 

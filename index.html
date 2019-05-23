@@ -16,7 +16,7 @@
         <div id="imagedrop">
             Ajouter une image (glisser-déposer ici)
             <input type="file" id="fileUpload" />
-            Attention : des images lourdes vont très fortment ralentir le site.
+            Attention : des images lourdes vont très fortment ralentir le site. Si c'est le cas, désactiver la compression automatique
         </div>
     </div>
     <div class="controls">
@@ -38,7 +38,7 @@
         <ul>
             <li>Cliquez sur la cellule que vous souhaitez modifier</li>
             <li>Cliquez sur une image du bandeau pour la choisir (ou sur la première des icônes pour la supprimer)</li>
-            <li>À chaque modification des données, la zone de texte ci-dessous est mise à jour. Vous pouvez la copier pour la sauvegarder</li>
+            <li>À chaque modification des données, la zone de texte ci-dessous est mise à jour (sauf si la compression automatique est désactivée). Vous pouvez la copier pour la sauvegarder</li>
             <li>Le bouton charger permet de charger les données de la zone de texte</li>
             <li>Le bouton "Vers la barre d'adresse" permet de mettre à jour l'adresse internet avec les données du tableau, pour pouvoir le sauvegarder en favoris</li>
             <li>Le bouton "Suivant identique" vous permet de vous déplacer a la cellule suivante en y copiant le même pictograme (pratique pour faire une rangée de chauffage par exemple).</li>
@@ -52,6 +52,8 @@
             <option value="a3">A3 (29,7 x 42)</option>
         </select>
     </div>
+    <label for="checkboxAutoCompress">Compression automatique</label>
+    <input type="checkbox" id="checkboxAutoCompress" checked>
     <textarea id="lzdata"></textarea>
     <input type="button" id="btnLoadLZData" value="charger">
     <input type="button" id="btnSendToURL" value="Vers la barre d'adresse">

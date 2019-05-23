@@ -14,6 +14,7 @@ Il existe un logiciel (Semiolog, par Hager) qui permettrait de réaliser ce type
   - Changer son icône, en cliquant sur une des images en dessous,
   - Changer le texte, en cliquant simplement dessus.
 - On peut glisser/déposer une image sur la zone correspondante pour ajouter ses propres images. Attention, plus les images seront lourdes, plus le site sera lent.
+- Si le site est lent, la compression automatique des données est désactivable.
 - On peut fusionner deux éléments (par exemple pour un interrupteur différentiel) en cliquant sur "Fusionner avec le précédent".
 - Le bouton "Séparer" permet de séparer deux éléments fusionnés.
 - Le bouton "Suivant identique" permet de copier l'élément sélectionné vers le suivant. Le curseur se mettra directement dans la zone de texte, il suffit de modifier ! C'est très pratique pour la création d'une rangée de radiateurs par exemple.
@@ -33,5 +34,5 @@ Icônes venues de icons8.com, merci !
 ## Reste à faire
 
 - [ ] Un style CSS acceptable...
-- [ ] Permettre de désactiver la compression automatique du tableau pour aller plus vite, et avoir un bouton "exporter" ?
+- [x] Permettre de désactiver la compression automatique du tableau pour aller plus vite, et avoir un bouton "exporter" ?
 - [ ] Réorganiser les icônes dans un ordre plus logique
