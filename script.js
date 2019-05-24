@@ -191,8 +191,8 @@ let autoCompress;
 
 function merge(){
     let cell = gNumCol;
-    if (LignesElec[gNumRow][cell].span == 0) {
-        while(cell >= 0 && LignesElec[gNumRow][--cell].span == 0);
+    if (LignesElec[gNumRow][cell].span === 0) {
+        while(cell >= 0 && LignesElec[gNumRow][--cell].span === 0);
     }
     if (cell <= 0) {
         return;
@@ -207,7 +207,7 @@ function split() {
         LignesElec[gNumRow][gNumCol].span -= 1;
         LignesElec[gNumRow][gNumCol + 1].span = 1;
     }
-    else if(LignesElec[gNumRow][gNumCol].span == 0) {
+    else if(LignesElec[gNumRow][gNumCol].span === 0) {
         LignesElec[gNumRow][gNumCol].span = 1;
     }
     updateAfterSplitMerge();
@@ -217,7 +217,7 @@ function updateAfterSplitMerge() {
     // Reprendre la ligne a l'envers, compter les cellules fusionnées et mettre a jour les valeurs
     let nombreCellulesFusionnees = 0;
     for(let colonne = LignesElec[gNumRow].length - 1 ; colonne > -1 ; --colonne){
-        if(LignesElec[gNumRow][colonne].span == 0) {
+        if(LignesElec[gNumRow][colonne].span === 0) {
             nombreCellulesFusionnees++;
         }
         else {
@@ -235,42 +235,42 @@ function updateAfterSplitMerge() {
 
 function Select(ligne, colonne) {
     // Enleve l'ancien indicateur
-    document.getElementById('indic_'+gNumRow+'_'+gNumCol).innerHTML = '';
+    document.getElementById("indic_"+gNumRow+"_"+gNumCol).innerHTML = "";
     // Stocke les nouvelles valeur de position
     gNumRow = ligne;
     gNumCol = colonne;
     
     let mergeDisabled = false;
     let cell = colonne;
-    if(LignesElec[ligne][cell].span == 0 || cell == 0) {
-        while(cell > 0 && LignesElec[ligne][--cell].span == 0);
+    if(LignesElec[ligne][cell].span === 0 || cell === 0) {
+        while(cell > 0 && LignesElec[ligne][--cell].span === 0);
         if (cell <= 0) {
             mergeDisabled = true;
         }
     }
-    document.getElementById('btnMerge').disabled = mergeDisabled;
-    document.getElementById('btnSplit').disabled = (LignesElec[ligne][colonne].span == 1);
+    document.getElementById("btnMerge").disabled = mergeDisabled;
+    document.getElementById("btnSplit").disabled = (LignesElec[ligne][colonne].span === 1);
     
     // Replace l'indicateur de position
-    document.getElementById(`indic_${ligne}_${colonne}`).innerHTML = '^';
+    document.getElementById(`indic_${ligne}_${colonne}`).innerHTML = "^";
     // Donne le focus au bon élément
     let elem = document.getElementById(`${ligne}_${colonne}`);
     while (!elem && --colonne >= 0) {
         elem = document.getElementById(`${ligne}_${colonne}`);
     }
     if (elem) {
-        elem.getElementsByTagName('div')[0].focus();
+        elem.getElementsByTagName("div")[0].focus();
     }
 }
 
 function SelectCellule(e) {
-    const coords = e.target.closest("td").id.split('_');
+    const coords = e.target.closest("td").id.split("_");
     Select(parseInt(coords[0], 10), parseInt(coords[1], 10));
 }
 
 function sauveTexte(e) {
     const target = e.target;
-    const coords = target.closest("td").id.split('_');
+    const coords = target.closest("td").id.split("_");
     LignesElec[coords[0]][coords[1]].texte = target.innerText;
     
     metAJourLZData();
@@ -292,23 +292,23 @@ function metAJourLZData() {
 }
 
 function updateTable() {
-    const el = document.getElementById('myTable');
+    const el = document.getElementById("myTable");
     while (el.firstChild) {
         el.removeChild(el.firstChild);
     }
     const table = document.createElement("table");
     table.classList.add("ligneTableau");
     const tbody = document.createElement("tbody");
-    for(numRow = 0 ; numRow < LignesElec.length ; ++numRow) {
+    for(let numRow = 0 ; numRow < LignesElec.length ; ++numRow) {
         let ligne = document.createElement("tr");
-        for(numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol){
-            if(LignesElec[numRow][numCol].span != 0){
+        for(let numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol){
+            if(LignesElec[numRow][numCol].span !== 0){
                 const cellule = document.createElement("td");
                 cellule.classList.add("Cell", "CellTableau");
                 cellule.id = `${numRow}_${numCol}`;
                 cellule.addEventListener("click", SelectCellule);
                 cellule.colSpan = LignesElec[numRow][numCol].span;
-                if (LignesElec[numRow][numCol].picto != "blank.png") {
+                if (LignesElec[numRow][numCol].picto !== "blank.png") {
                     const picto = document.createElement("img");
                     if (LignesElec[numRow][numCol].picto.startsWith("data:")) {
                         picto.src = LignesElec[numRow][numCol].picto;
@@ -319,7 +319,7 @@ function updateTable() {
                     cellule.appendChild(picto);
                 }
                 
-                span = document.createElement("div");
+                let span = document.createElement("div");
                 span.innerHTML = LignesElec[numRow][numCol].texte;
                 span.contentEditable = true;
                 span.addEventListener("input", sauveTexte);
@@ -330,7 +330,7 @@ function updateTable() {
         tbody.appendChild(ligne);
         const ligneEspace = document.createElement("tr");
         ligneEspace.classList.add("TRSpacer");
-        for(numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol) {
+        for(let numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol) {
             const td = document.createElement("td");
             td.classList.add("Cell", "CellEspace");
             td.id = `${numRow}_${numCol}_td`;
@@ -345,16 +345,16 @@ function updateTable() {
     }
     
     table.appendChild(tbody);
-    document.getElementById('myTable').appendChild(table);
+    document.getElementById("myTable").appendChild(table);
     metAJourLZData();
 }
 
 function RAZ(){
-    if(confirm('Effacer tout le tableau ?')){
+    if(confirm("Effacer tout le tableau ?")){
         for(let numRow = 0 ; numRow < LignesElec.length ; ++numRow){
             for(let numCol = 0 ; numCol < LignesElec[numRow].length ; ++numCol) {
-                LignesElec[numRow][numCol].picto = 'blank.png';
-                LignesElec[numRow][numCol].texte = '';
+                LignesElec[numRow][numCol].picto = "blank.png";
+                LignesElec[numRow][numCol].texte = "";
                 LignesElec[numRow][numCol].span = 1;
             }
         }
@@ -412,11 +412,11 @@ function loadPicto() {
 
 /* drag and drop fun, from https://codepen.io/doughensel/pen/zGMmop */
 function ajoutImage(fichier) {
-    if( fichier.type === 'image/png' || 
-    fichier.type === 'image/jpg' || 
-    fichier.type === 'image/jpeg' ||
-    fichier.type === 'image/gif' ||
-    fichier.type === 'image/bmp'){
+    if( fichier.type === "image/png" ||
+    fichier.type === "image/jpg" ||
+    fichier.type === "image/jpeg" ||
+    fichier.type === "image/gif" ||
+    fichier.type === "image/bmp"){
         const reader = new FileReader();
         reader.readAsDataURL( fichier );
         reader.onload = function(newImage) {
@@ -431,8 +431,8 @@ function ajoutImage(fichier) {
 
 const dragdrop = {
     init: function(elem){
-        elem.setAttribute('ondrop', 'dragdrop.drop(event)');
-        elem.setAttribute('ondragover', 'dragdrop.drag(event)' );
+        elem.setAttribute("ondrop", "dragdrop.drop(event)");
+        elem.setAttribute("ondragover", "dragdrop.drag(event)" );
     },
     drop: function(e){
         e.preventDefault();
@@ -453,7 +453,7 @@ function changeNombreColonnes(e) {
     }
     while (nouvelleValeur > LignesElec[0].length) {
         for (let i = 0; i < LignesElec.length; ++i) {
-            LignesElec[i].push({picto: 'blank.png',texte: '',span: 1});
+            LignesElec[i].push({picto: "blank.png",texte: "",span: 1});
         }
     }
     updateTable();
@@ -466,7 +466,7 @@ function changeNombreLignes(e) {
     while (nouvelleValeur > LignesElec.length) {
         let nouvelleLigne = [];
         for (let i = 0; i < LignesElec[0].length; ++i) {
-            nouvelleLigne.push({picto: 'blank.png',texte: '',span: 1});
+            nouvelleLigne.push({picto: "blank.png",texte: "",span: 1});
         }
         LignesElec.push(nouvelleLigne);
     }
@@ -476,12 +476,12 @@ function changeNombreLignes(e) {
 function exportPDF() {
     html2canvas(window.document.getElementById("myTable")).then(function(canvas) {
         const imgData = canvas.toDataURL("image/jpeg", 1.0);
-        const pdf = new jsPDF('l', 'mm', document.getElementById("slctFormat").value);
+        const pdf = new jsPDF("l", "mm", document.getElementById("slctFormat").value);
         const margins = {
             top: 7,
             left: 7
         };
-        pdf.addImage(imgData, 'JPEG', margins.top, margins.left);
+        pdf.addImage(imgData, "JPEG", margins.top, margins.left);
         pdf.save("download.pdf");
     });
 }
@@ -503,7 +503,7 @@ function chargeLZdata() {
 
 function loadGETData() {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('data')) {
+    if (urlParams.has("data")) {
         document.getElementById("lzdata").value = urlParams.get("data");
         chargeLZdata();
     }
@@ -540,8 +540,8 @@ function ready() {
     
     setLignesColonnes();
 
-    dragdrop.init(document.getElementById('imagedrop'));
-    document.getElementById('fileUpload').addEventListener("change", function(){ ajoutImage(this.files[0]); });
+    dragdrop.init(document.getElementById("imagedrop"));
+    document.getElementById("fileUpload").addEventListener("change", function(){ ajoutImage(this.files[0]); });
     loadGETData();
 }
 
