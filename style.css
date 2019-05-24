@@ -69,4 +69,9 @@ img {
 #imagedrop {
     border: solid 2px #333333;
     border-radius: 10px;
+    height: 100px;
+    text-align: center;
+    width: 400px;
+    padding: 10px;
+    display: grid;
 }
