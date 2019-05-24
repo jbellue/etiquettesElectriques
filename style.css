@@ -28,7 +28,7 @@ body {
 
 .LigneTableau {
     background: white;
-    border-collapse: collapse;
+    margin: 7mm;
 }
 
 .TRSpacer {
