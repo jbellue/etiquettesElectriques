@@ -384,8 +384,8 @@ function AddPicture(imgName){
 }
 
 function loadPicto() {
-    // Ces images vont être affichées dans l'ordre inverse de cette liste
     const imgList = [
+        "blank.png",
         "air-conditioner.png",        "central-air-conditioning.png", "central-heating.png",
         "radiator.png",               "heating-automation.png",       "heating-room.png",
         "thermometer-automation.png", "kitchen.png",                  "cooker-hood.png",
@@ -398,8 +398,7 @@ function loadPicto() {
         "ceiling-light.png",          "smart-home-automation.png",    "wall-socket.png",
         "office-phone.png",           "pc-on-desk.png",               "tumble-dryer.png",
         "washing-machine.png",        "washing.png",                  "water-heater.png",
-        "garage.png",                 "stairs-down.png",              "stairs-up.png",                
-        "blank.png"
+        "garage.png",                 "stairs-down.png",              "stairs-up.png"
     ];
     
     const listePicto = document.getElementById("listePicto");
@@ -407,7 +406,7 @@ function loadPicto() {
         const image = document.createElement("img");
         image.src = `pict/${imageName}`;
         image.onclick = function() {AddPicture(imageName);};
-        listePicto.insertBefore(image, listePicto.firstChild);
+        listePicto.appendChild(image, listePicto.firstChild);
     });
 }
 
