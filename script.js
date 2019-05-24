@@ -198,7 +198,7 @@ function merge(){
         return;
     }
     LignesElec[gNumRow][cell].span = 0;
-    
+
     updateAfterSplitMerge();
 }
 
@@ -239,7 +239,7 @@ function Select(ligne, colonne) {
     // Stocke les nouvelles valeur de position
     gNumRow = ligne;
     gNumCol = colonne;
-    
+
     let mergeDisabled = false;
     let cell = colonne;
     if(LignesElec[ligne][cell].span === 0 || cell === 0) {
@@ -250,7 +250,7 @@ function Select(ligne, colonne) {
     }
     document.getElementById("btnMerge").disabled = mergeDisabled;
     document.getElementById("btnSplit").disabled = (LignesElec[ligne][colonne].span === 1);
-    
+
     // Replace l'indicateur de position
     document.getElementById(`indic_${ligne}_${colonne}`).innerHTML = "^";
     // Donne le focus au bon élément
@@ -272,7 +272,7 @@ function sauveTexte(e) {
     const target = e.target;
     const coords = target.closest("td").id.split("_");
     LignesElec[coords[0]][coords[1]].texte = target.innerText;
-    
+
     metAJourLZData();
 }
 
@@ -318,7 +318,7 @@ function updateTable() {
                     }
                     cellule.appendChild(picto);
                 }
-                
+
                 let span = document.createElement("div");
                 span.innerHTML = LignesElec[numRow][numCol].texte;
                 span.contentEditable = true;
@@ -343,7 +343,7 @@ function updateTable() {
         }
         tbody.appendChild(ligneEspace);
     }
-    
+
     table.appendChild(tbody);
     document.getElementById("myTable").appendChild(table);
     metAJourLZData();
@@ -400,7 +400,7 @@ function loadPicto() {
         "washing-machine.png",        "washing.png",                  "water-heater.png",
         "garage.png",                 "stairs-down.png",              "stairs-up.png"
     ];
-    
+
     const listePicto = document.getElementById("listePicto");
     imgList.forEach(imageName => {
         const image = document.createElement("img");
@@ -474,7 +474,10 @@ function changeNombreLignes(e) {
 }
 
 function exportPDF() {
-    html2canvas(window.document.getElementById("myTable")).then(function(canvas) {
+    const table = window.document.getElementById("myTable");
+    html2canvas(table, {
+        logging: false
+    }).then(function(canvas) {
         const imgData = canvas.toDataURL("image/jpeg", 1.0);
         const pdf = new jsPDF("l", "mm", document.getElementById("slctFormat").value);
         const margins = {
@@ -535,9 +538,9 @@ function ready() {
     document.getElementById("btnExportPdf").addEventListener("click", exportPDF);
     document.getElementById("btnLoadLZData").addEventListener("click", chargeLZdata);
     document.getElementById("btnSendToURL").addEventListener("click", sendToURL);
-    
+
     Select(gNumRow, gNumCol);
-    
+
     setLignesColonnes();
 
     dragdrop.init(document.getElementById("imagedrop"));
