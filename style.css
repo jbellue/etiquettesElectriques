@@ -37,14 +37,20 @@ body {
 
 .Cell {
     padding: 0;
-    border-left-width: 1px;
-    border-right-width: 1px;
+    border-left-width: 0;
+    border-right-width: 0.3mm;
     border-left-style: solid;
     border-right-style: solid;
     text-align: center;
     vertical-align: top;
-    width: 17.8mm;
+    width: 17.6mm;
 }
+
+/* only give left border to first Cell */
+tbody tr td:first-of-type {
+    border-left-width: 0.3mm;
+}
+
 img {
     max-width: 17.7mm;
 }
