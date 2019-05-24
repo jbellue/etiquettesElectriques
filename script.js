@@ -497,6 +497,8 @@ function chargeLZdata() {
         textArea.value = "Erreur : impossible de lire les données";
         textArea.style.backgroundColor = "red";
     }
+
+    setLignesColonnes();
 }
 
 function loadGETData() {
@@ -536,16 +538,20 @@ function ready() {
     
     Select(gNumRow, gNumCol);
     
-    let rangeLignes = document.getElementById("rangeLignes");
-    rangeLignes.value = LignesElec.length;
-    rangeLignes.addEventListener("change", changeNombreLignes);
-    let rangeColonnes = document.getElementById("rangeColonnes");
-    rangeColonnes.value = LignesElec[0].length;
-    rangeColonnes.addEventListener("change", changeNombreColonnes);
-    
+    setLignesColonnes();
+
     dragdrop.init(document.getElementById('imagedrop'));
     document.getElementById('fileUpload').addEventListener("change", function(){ ajoutImage(this.files[0]); });
     loadGETData();
 }
 
 document.addEventListener("DOMContentLoaded", ready);
+
+function setLignesColonnes() {
+    let rangeLignes = document.getElementById("rangeLignes");
+    rangeLignes.value = LignesElec.length;
+    rangeLignes.addEventListener("change", changeNombreLignes);
+    let rangeColonnes = document.getElementById("rangeColonnes");
+    rangeColonnes.value = LignesElec[0].length;
+    rangeColonnes.addEventListener("change", changeNombreColonnes);
+}
